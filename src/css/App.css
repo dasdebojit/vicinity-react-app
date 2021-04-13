@@ -1,0 +1,33 @@
+.App {
+  text-align: center;
+  background: #1D2B64;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #F8CDDA, #1D2B64);  
+  background: linear-gradient(to left, #F8CDDA, #1D2B64); 
+  min-height: 100vh;
+  padding: 0;
+}
+
+input {
+  border: none;
+  border-radius: 4px;
+  border-style: ridge;
+  box-shadow: 0px 5px 10px grey;
+  outline: none;
+  font-size: 1.2rem;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
+#image {
+  border-radius: 10px;
+  border-style: ridge;
+  box-shadow: 0px 3px 8px black;
+}
+
+.card {
+  box-shadow: 0px 5px 10px whitesmoke;
+  padding: 40px;
+  text-align: center;
+  min-height: max-content;
+  background: transparent;
+}

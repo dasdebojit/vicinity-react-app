@@ -1,25 +1,63 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect, useState} from 'react';
+import Image from './components/Image';
+import Header from './components/Header';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './css/App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+// set default state and url
+const defImgurl = "https://farm66.staticflickr.com/65535/48720121266_027076f0bf_n.jpg",
+    defState = "assam",
+    url = "http://localhost:7000/searchbyurl/";
+
+const App = () => {
+    const [images, setImages] = useState([]);
+    const [query, setQuery] = useState({url: defImgurl, state: defState});
+
+    // form submits => query changed => useEffect() runs => getNearImage() fetches data => component renders
+    useEffect(() => {
+        getNearImages(query.url, query.state);
+    }, [query]);
+
+    const getNearImages = async(imgurl, state) => {
+        try{
+            const requestParams = {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({url:imgurl, state: state})
+            };
+            const response = await fetch(url, requestParams);
+            const data = await response.json();
+            setImages(data.res);
+            console.log(data.res);
+        } catch(err){
+            console.log(err);
+        }
+    }
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        setQuery({url: e.target.elements.url.value, state: e.target.elements.state.value});
+    }
+
+    return (
+        <div className="App">
+            <Header />
+            <h1> Hello React</h1>
+            <form onSubmit={(e)=>handleSubmit(e)}>
+                <input type="text" name="url" placeholder="Enter url here"/>
+                <input type="text" name="state" placeholder="Enter state here"/>
+                <button className="btn btn-primary">Search</button>
+            </form>
+            <div className="container">
+                <div className="row">
+                    {images.map(image => (
+                        <Image image={image} key={image.url}/>
+                    ))}
+                </div>
+            </div>
+            
+        </div>
+    );
+};
 
 export default App;
