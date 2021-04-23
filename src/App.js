@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import Image from './components/Image';
+import Images from './components/Images';
 import Header from './components/Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/App.css';
@@ -42,22 +42,19 @@ const App = () => {
     return (
         <div className="App">
             <Header />
-            <h1> Hello React</h1>
-            <form onSubmit={(e)=>handleSubmit(e)}>
-                <input type="text" name="url" placeholder="Enter url here"/>
-                <input type="text" name="state" placeholder="Enter state here"/>
-                <button className="btn btn-primary">Search</button>
-            </form>
             <div className="container">
-                <div className="row">
-                    {images.map(image => (
-                        <Image image={image} key={image.url}/>
-                    ))}
-                </div>
+                <form onSubmit={(e)=>handleSubmit(e)}>
+                    <input type="text" name="url" placeholder="Enter url here"/>
+                    <input type="text" name="state" placeholder="Enter state here"/>
+                    <button className="btn btn-primary">Search</button>
+                </form>
             </div>
-            
+            <Images images={images} />
         </div>
     );
 };
 
+
 export default App;
+
+

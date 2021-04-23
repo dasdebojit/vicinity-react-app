@@ -1,11 +1,12 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../css/Header.css';
 
 const Header = () => {
   return(
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <a className="navbar-brand" href="#">Navbar w/ text</a>
+        <a className="navbar-brand" href="#">viciNITY</a>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -17,12 +18,9 @@ const Header = () => {
             <li className="nav-item">
               <a className="nav-link" href="#">Features</a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">Pricing</a>
-            </li>
           </ul>
           <span className="navbar-text">
-            Navbar text with an inline element
+            Search for travel destinations across the country.
           </span>
         </div>
       </nav>

@@ -1,15 +1,14 @@
 .App {
-  text-align: center;
   background: #1D2B64;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to left, #F8CDDA, #1D2B64);  
   background: linear-gradient(to left, #F8CDDA, #1D2B64); 
   min-height: 100vh;
-  padding: 0;
 }
 
 input {
   border: none;
-  border-radius: 4px;
+  /* margin: 1.2rem; */
+  /* border-radius: 4px; */
   border-style: ridge;
   box-shadow: 0px 5px 10px grey;
   outline: none;
@@ -17,6 +16,10 @@ input {
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+.btn-primary {
+  border-radius: 0;
+  padding: 3px 15px;
+}
 
 #image {
   border-radius: 10px;
@@ -25,9 +28,13 @@ input {
 }
 
 .card {
-  box-shadow: 0px 5px 10px whitesmoke;
+  box-shadow: 0px 5px 10px rgb(196, 192, 192);
   padding: 40px;
   text-align: center;
   min-height: max-content;
   background: transparent;
+}
+
+form {
+  margin: 3rem 1rem;
 }
